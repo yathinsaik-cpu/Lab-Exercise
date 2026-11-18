@@ -1,0 +1,28 @@
+PS C:\Users\user\Documents\python programming -- 3rd sem> & 'C:\Users\user\AppData\Local\Python\pythoncore-3.14-64\python.exe' '"c:/Users/user/Documents/python programming -- 3rd sem/bill generator .py"'
+Shopping Items:
+  - Apple: 5 x $1.20
+  - Milk: 1 x $3.50
+  - Bread: 2 x $2.75
+  - Cheese: 1 x $7.99
+Discount: 10.0%
+Sales Tax: 8.0%
+Subtotal before discount: $22.99
+Discount amount (10.0%): $2.30
+Subtotal after discount: $20.69
+Tax amount (8.0%): $1.66
+
+--- Your Shopping Bill ---
+--------------------------
+Apple             5 x $1.20 = $6.00
+Milk              1 x $3.50 = $3.50
+Bread             2 x $2.75 = $5.50
+Cheese            1 x $7.99 = $7.99
+--------------------------
+Subtotal:                 $22.99
+Discount (10.0%):         -$2.30
+Subtotal (after discount): $20.69
+Sales Tax (8.0%):             +$1.66
+--------------------------
+Total Amount Due:         $22.35
+--------------------------
+PS C:\Users\user\Documents\python programming -- 3rd sem> 
