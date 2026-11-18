@@ -1,0 +1,20 @@
+PS C:\Users\user\Documents\python programming -- 3rd sem> & 'C:\Users\user\AppData\Local\Python\pythoncore-3.14-64\python.exe' '"c:/Users/user/Documents/python programming -- 3rd sem/program 08"'
+==========================================
+       FREQUENCY COUNTER PROGRAM
+==========================================
+Enter the number of elements: 3
+
+Enter the elements:
+Element 1: 10
+Element 2: 20
+Element 3: 30
+
+Original List: [10, 20, 30]
+
+Element Frequency
+-------------------------
+10         1
+20         1
+30         1
+==========================================
+PS C:\Users\user\Documents\python programming -- 3rd sem> 
