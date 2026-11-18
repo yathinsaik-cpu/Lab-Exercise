@@ -1,0 +1,94 @@
+PS C:\Users\user\Documents\python programming -- 3rd sem> & 'C:\Users\user\AppData\Local\Python\pythoncore-3.14-64\python.exe' '"c:/Users/user/Documents/python programming -- 3rd sem/program 07"'
+==============================================
+          STUDENT GRADING SYSTEM
+==============================================
+
+==============================================
+                  MAIN MENU
+==============================================
+1. Add Students
+2. Display All Students
+3. Search Student
+4. Find Class Topper
+5. Grade Statistics
+6. Exit
+
+Enter your choice: 1
+
+Enter number of students: 2     
+
+Enter Details of Student 1
+Enter student name: yathin 
+Enter roll number: 043
+Enter marks for 5 subjects:
+Subject 1: 95
+Subject 2: 85
+Subject 3: 65
+Subject 4: 73
+Subject 5: 55
+Student added successfully!
+
+Enter Details of Student 2
+Enter student name: sai
+Enter roll number: 054
+Enter marks for 5 subjects:
+Subject 1: 65 
+Subject 2: 85
+Subject 3: 75
+Subject 4: 65
+Subject 5: 75
+Student added successfully!
+
+==============================================
+                  MAIN MENU
+==============================================
+1. Add Students
+2. Display All Students
+3. Search Student
+4. Find Class Topper
+5. Grade Statistics
+6. Exit
+
+Enter your choice: 4
+
+========== CLASS TOPPER ==========
+Name: yathin
+Roll Number: 043
+Percentage: 74.6
+Grade: B
+
+==============================================
+                  MAIN MENU
+==============================================
+1. Add Students
+2. Display All Students
+3. Search Student
+4. Find Class Topper
+5. Grade Statistics
+6. Exit
+
+Enter your choice: 5
+
+========== GRADE STATISTICS ==========
+A+ : 0 students
+A : 0 students
+B : 2 students
+C : 0 students
+D : 0 students
+Fail : 0 students
+
+==============================================
+                  MAIN MENU
+==============================================
+1. Add Students
+2. Display All Students
+3. Search Student
+4. Find Class Topper
+5. Grade Statistics
+6. Exit
+
+Enter your choice: 6
+
+Thank you for using Student Grading System!
+==============================================
+PS C:\Users\user\Documents\python programming -- 3rd sem> 
