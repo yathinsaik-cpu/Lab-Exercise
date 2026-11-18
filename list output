@@ -1,0 +1,33 @@
+PS C:\Users\user\Documents\python programming -- 3rd sem> & 'C:\Users\user\AppData\Local\Python\pythoncore-3.14-64\python.exe' '"c:/Users/user/Documents/python programming -- 3rd sem/list.py"'
+j
+a
+i
+n
+u
+n
+i
+v
+e
+r
+s
+i
+t
+y
+("j","a","i","n"," ","u","n","i","v","e","r","s","i","t","y")
+['j', 'a', 'i', 'n', ' ', 'u', 'n', 'i', 'v', 'e', 'r', 's', 'i', 't', 'y']
+r : 1
+j : 1
+  : 1
+t : 1
+s : 1
+a : 1
+i : 3
+y : 1
+u : 1
+n : 2
+v : 1
+e : 1
+jAin university
+jain
+['jain', 'university']
+PS C:\Users\user\Documents\python programming -- 3rd sem> 
