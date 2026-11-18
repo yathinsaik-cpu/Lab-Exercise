@@ -1,0 +1,105 @@
+PS C:\Users\user\Documents\python programming -- 3rd sem> & 'C:\Users\user\AppData\Local\Python\pythoncore-3.14-64\python.exe' '"c:/Users/user/Documents/python programming -- 3rd sem/program 14"'
+==========================================
+          PYTHON DICE SIMULATOR
+==========================================
+
+========== DICE MENU ==========
+1. Roll Dice
+2. Roll Dice Multiple Times
+3. Display Total Rolls
+4. Exit
+
+Enter your choice: 1
+
+You rolled: 5
++-------+
+| *   * |
+|   *   |
+| *   * |
++-------+
+
+========== DICE MENU ==========
+1. Roll Dice
+2. Roll Dice Multiple Times
+3. Display Total Rolls
+4. Exit
+
+Enter your choice: 2
+How many times do you want to roll? 6
+
+Roll Number: 1
+
+You rolled: 3
++-------+
+| *     |
+|   *   |
+|     * |
++-------+
+
+Roll Number: 2
+
+You rolled: 3
++-------+
+| *     |
+|   *   |
+|     * |
++-------+
+
+Roll Number: 3
+
+You rolled: 5
++-------+
+| *   * |
+|   *   |
+| *   * |
++-------+
+
+Roll Number: 4
+
+You rolled: 6
++-------+
+| *   * |
+| *   * |
+| *   * |
++-------+
+
+Roll Number: 5
+
+You rolled: 3
++-------+
+| *     |
+|   *   |
+|     * |
++-------+
+
+Roll Number: 6
+
+You rolled: 4
++-------+
+| *   * |
+|       |
+| *   * |
++-------+
+
+========== DICE MENU ==========
+1. Roll Dice
+2. Roll Dice Multiple Times
+3. Display Total Rolls
+4. Exit
+
+Enter your choice: 3
+
+Total Dice Rolls: 7
+
+========== DICE MENU ==========
+1. Roll Dice
+2. Roll Dice Multiple Times
+3. Display Total Rolls
+4. Exit
+
+Enter your choice: 4
+
+Thank you for playing Dice Simulator!
+Total Dice Rolls: 7
+==========================================
+PS C:\Users\user\Documents\python programming -- 3rd sem> 
