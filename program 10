@@ -1,0 +1,192 @@
+
+import json
+import os
+
+FILE_NAME = "students.json"
+
+# Function to load student records
+def load_students():
+
+    if os.path.exists(FILE_NAME):
+        with open(FILE_NAME, "r") as file:
+            try:
+                return json.load(file)
+            except json.JSONDecodeError:
+                return []
+
+    return []
+
+
+# Function to save student records
+def save_students(students):
+
+    with open(FILE_NAME, "w") as file:
+        json.dump(students, file, indent=4)
+
+
+# Function to add a student
+def add_student():
+
+    students = load_students()
+
+    print("\n========== ADD STUDENT ==========")
+
+    roll = input("Enter Roll Number: ")
+
+    # Check duplicate roll number
+    for student in students:
+        if student["roll"] == roll:
+            print("Roll number already exists!")
+            return
+
+    name = input("Enter Student Name: ")
+    age = input("Enter Student Age: ")
+    course = input("Enter Course: ")
+    phone = input("Enter Phone Number: ")
+
+    student = {
+        "roll": roll,
+        "name": name,
+        "age": age,
+        "course": course,
+        "phone": phone
+    }
+
+    students.append(student)
+
+    save_students(students)
+
+    print("\nStudent added successfully!")
+
+
+# Function to display all students
+def display_students():
+
+    students = load_students()
+
+    print("\n========== STUDENT RECORDS ==========")
+
+    if not students:
+        print("No student records found.")
+        return
+
+    for student in students:
+
+        print("\nRoll Number:", student["roll"])
+        print("Name:", student["name"])
+        print("Age:", student["age"])
+        print("Course:", student["course"])
+        print("Phone:", student["phone"])
+
+        print("-----------------------------------")
+
+
+# Function to search a student
+def search_student():
+
+    students = load_students()
+
+    roll = input("\nEnter Roll Number to Search: ")
+
+    for student in students:
+
+        if student["roll"] == roll:
+
+            print("\nStudent Found!")
+            print("Roll Number:", student["roll"])
+            print("Name:", student["name"])
+            print("Age:", student["age"])
+            print("Course:", student["course"])
+            print("Phone:", student["phone"])
+
+            return
+
+    print("\nStudent not found!")
+
+
+# Function to update student details
+def update_student():
+
+    students = load_students()
+
+    roll = input("\nEnter Roll Number to Update: ")
+
+    for student in students:
+
+        if student["roll"] == roll:
+
+            print("\nEnter New Details")
+
+            student["name"] = input("Enter New Name: ")
+            student["age"] = input("Enter New Age: ")
+            student["course"] = input("Enter New Course: ")
+            student["phone"] = input("Enter New Phone Number: ")
+
+            save_students(students)
+
+            print("\nStudent details updated successfully!")
+            return
+
+    print("\nStudent not found!")
+
+
+# Function to delete a student
+def delete_student():
+
+    students = load_students()
+
+    roll = input("\nEnter Roll Number to Delete: ")
+
+    for student in students:
+
+        if student["roll"] == roll:
+
+            students.remove(student)
+
+            save_students(students)
+
+            print("\nStudent deleted successfully!")
+            return
+
+    print("\nStudent not found!")
+
+
+# Main menu
+while True:
+
+    print("\n====================================")
+    print("       STUDENT DATA MANAGER")
+    print("====================================")
+
+    print("1. Add Student")
+    print("2. Display All Students")
+    print("3. Search Student")
+    print("4. Update Student")
+    print("5. Delete Student")
+    print("6. Exit")
+
+    choice = input("\nEnter Your Choice: ")
+
+    if choice == "1":
+        add_student()
+
+    elif choice == "2":
+        display_students()
+
+    elif choice == "3":
+        search_student()
+
+    elif choice == "4":
+        update_student()
+
+    elif choice == "5":
+        delete_student()
+
+    elif choice == "6":
+        print("\nThank You for Using Student Data Manager!")
+        break
+
+    else:
+        print("\nInvalid Choice! Please Try Again.")
+
+print("====================================")

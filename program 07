@@ -1,0 +1,184 @@
+
+print("==============================================")
+print("          STUDENT GRADING SYSTEM")
+print("==============================================")
+
+students = []
+
+# Function to calculate grade
+def calculate_grade(percentage):
+    if percentage >= 90:
+        return "A+"
+    elif percentage >= 80:
+        return "A"
+    elif percentage >= 70:
+        return "B"
+    elif percentage >= 60:
+        return "C"
+    elif percentage >= 50:
+        return "D"
+    else:
+        return "Fail"
+
+
+# Function to add multiple students
+def add_students():
+
+    n = int(input("\nEnter number of students: "))
+
+    for i in range(n):
+
+        print("\nEnter Details of Student", i + 1)
+
+        name = input("Enter student name: ")
+        roll = input("Enter roll number: ")
+
+        marks = []
+
+        print("Enter marks for 5 subjects:")
+
+        for j in range(5):
+            mark = float(input("Subject " + str(j + 1) + ": "))
+
+            if mark < 0 or mark > 100:
+                print("Invalid marks! Enter marks between 0 and 100.")
+                break
+
+            marks.append(mark)
+
+        if len(marks) != 5:
+            print("Student record not added.")
+            continue
+
+        total = sum(marks)
+        percentage = total / 5
+        grade = calculate_grade(percentage)
+
+        student = {
+            "name": name,
+            "roll": roll,
+            "marks": marks,
+            "total": total,
+            "percentage": percentage,
+            "grade": grade
+        }
+
+        students.append(student)
+
+        print("Student added successfully!")
+
+
+# Function to display all students
+def display_students():
+
+    if not students:
+        print("\nNo student records found.")
+        return
+
+    print("\n============== ALL STUDENT RESULTS ==============")
+
+    print("{:<15} {:<12} {:<10} {:<12} {:<10}".format(
+        "Name", "Roll No", "Total", "Percentage", "Grade"))
+
+    print("-" * 65)
+
+    for s in students:
+        print("{:<15} {:<12} {:<10} {:<12.2f} {:<10}".format(
+            s["name"], s["roll"], s["total"],
+            s["percentage"], s["grade"]))
+
+
+# Function to search student
+def search_student():
+
+    roll = input("\nEnter roll number: ")
+
+    for s in students:
+        if s["roll"] == roll:
+            print("\nStudent Found!")
+            print("Name:", s["name"])
+            print("Roll Number:", s["roll"])
+            print("Marks:", s["marks"])
+            print("Total:", s["total"])
+            print("Percentage:", s["percentage"])
+            print("Grade:", s["grade"])
+            return
+
+    print("Student not found!")
+
+
+# Function to find class topper
+def find_topper():
+
+    if not students:
+        print("No student records available.")
+        return
+
+    topper = max(students, key=lambda s: s["percentage"])
+
+    print("\n========== CLASS TOPPER ==========")
+    print("Name:", topper["name"])
+    print("Roll Number:", topper["roll"])
+    print("Percentage:", topper["percentage"])
+    print("Grade:", topper["grade"])
+
+
+# Function to display grade statistics
+def grade_statistics():
+
+    if not students:
+        print("No student records available.")
+        return
+
+    print("\n========== GRADE STATISTICS ==========")
+
+    grades = ["A+", "A", "B", "C", "D", "Fail"]
+
+    for grade in grades:
+        count = 0
+
+        for s in students:
+            if s["grade"] == grade:
+                count += 1
+
+        print(grade, ":", count, "students")
+
+
+# Main menu
+while True:
+
+    print("\n==============================================")
+    print("                  MAIN MENU")
+    print("==============================================")
+    print("1. Add Students")
+    print("2. Display All Students")
+    print("3. Search Student")
+    print("4. Find Class Topper")
+    print("5. Grade Statistics")
+    print("6. Exit")
+
+    choice = input("\nEnter your choice: ")
+
+    if choice == "1":
+        add_students()
+
+    elif choice == "2":
+        display_students()
+
+    elif choice == "3":
+        search_student()
+
+    elif choice == "4":
+        find_topper()
+
+    elif choice == "5":
+        grade_statistics()
+
+    elif choice == "6":
+        print("\nThank you for using Student Grading System!")
+        break
+
+    else:
+        print("Invalid choice! Please try again.")
+
+print("==============================================")

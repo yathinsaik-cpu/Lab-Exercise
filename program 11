@@ -1,0 +1,283 @@
+
+import csv
+import os
+
+FILE_NAME = "payroll.csv"
+
+# Function to create CSV file
+def create_file():
+    if not os.path.exists(FILE_NAME):
+        with open(FILE_NAME, "w", newline="") as file:
+            writer = csv.writer(file)
+
+            writer.writerow([
+                "Employee ID",
+                "Name",
+                "Department",
+                "Basic Salary",
+                "HRA",
+                "DA",
+                "PF",
+                "Gross Salary",
+                "Net Salary"
+            ])
+
+
+# Function to calculate salary
+def calculate_salary(basic):
+
+    hra = basic * 0.20
+    da = basic * 0.10
+    pf = basic * 0.12
+
+    gross = basic + hra + da
+    net = gross - pf
+
+    return hra, da, pf, gross, net
+
+
+# Function to add employee
+def add_employee():
+
+    print("\n========== ADD EMPLOYEE ==========")
+
+    emp_id = input("Enter Employee ID: ")
+
+    # Check duplicate employee ID
+    with open(FILE_NAME, "r", newline="") as file:
+        reader = csv.DictReader(file)
+
+        for row in reader:
+            if row["Employee ID"] == emp_id:
+                print("Employee ID already exists!")
+                return
+
+    name = input("Enter Employee Name: ")
+    department = input("Enter Department: ")
+    basic = float(input("Enter Basic Salary: "))
+
+    if basic < 0:
+        print("Salary cannot be negative!")
+        return
+
+    hra, da, pf, gross, net = calculate_salary(basic)
+
+    with open(FILE_NAME, "a", newline="") as file:
+
+        writer = csv.writer(file)
+
+        writer.writerow([
+            emp_id,
+            name,
+            department,
+            basic,
+            hra,
+            da,
+            pf,
+            gross,
+            net
+        ])
+
+    print("\nEmployee added successfully!")
+
+    print("Gross Salary:", round(gross, 2))
+    print("Net Salary:", round(net, 2))
+
+
+# Function to display employees
+def display_employees():
+
+    print("\n========== PAYROLL RECORDS ==========")
+
+    with open(FILE_NAME, "r", newline="") as file:
+
+        reader = csv.DictReader(file)
+
+        found = False
+
+        for row in reader:
+
+            found = True
+
+            print("\nEmployee ID:", row["Employee ID"])
+            print("Name:", row["Name"])
+            print("Department:", row["Department"])
+            print("Basic Salary:", row["Basic Salary"])
+            print("HRA:", row["HRA"])
+            print("DA:", row["DA"])
+            print("PF:", row["PF"])
+            print("Gross Salary:", row["Gross Salary"])
+            print("Net Salary:", row["Net Salary"])
+
+            print("--------------------------------")
+
+
+        if not found:
+            print("No employee records found!")
+
+
+# Function to search employee
+def search_employee():
+
+    emp_id = input("\nEnter Employee ID to Search: ")
+
+    with open(FILE_NAME, "r", newline="") as file:
+
+        reader = csv.DictReader(file)
+
+        for row in reader:
+
+            if row["Employee ID"] == emp_id:
+
+                print("\nEmployee Found!")
+
+                for key, value in row.items():
+                    print(key, ":", value)
+
+                return
+
+    print("Employee not found!")
+
+
+# Function to update employee
+def update_employee():
+
+    emp_id = input("\nEnter Employee ID to Update: ")
+
+    rows = []
+    found = False
+
+    with open(FILE_NAME, "r", newline="") as file:
+
+        reader = csv.DictReader(file)
+
+        for row in reader:
+
+            if row["Employee ID"] == emp_id:
+
+                found = True
+
+                print("Enter Updated Details")
+
+                row["Name"] = input("Enter New Name: ")
+                row["Department"] = input("Enter New Department: ")
+
+                basic = float(input("Enter New Basic Salary: "))
+
+                if basic < 0:
+                    print("Invalid salary! Update cancelled.")
+                    return
+
+                hra, da, pf, gross, net = calculate_salary(basic)
+
+                row["Basic Salary"] = basic
+                row["HRA"] = hra
+                row["DA"] = da
+                row["PF"] = pf
+                row["Gross Salary"] = gross
+                row["Net Salary"] = net
+
+            rows.append(row)
+
+    if found:
+
+        with open(FILE_NAME, "w", newline="") as file:
+
+            fieldnames = [
+                "Employee ID", "Name", "Department",
+                "Basic Salary", "HRA", "DA", "PF",
+                "Gross Salary", "Net Salary"
+            ]
+
+            writer = csv.DictWriter(file, fieldnames=fieldnames)
+
+            writer.writeheader()
+            writer.writerows(rows)
+
+        print("Employee updated successfully!")
+
+    else:
+        print("Employee not found!")
+
+
+# Function to delete employee
+def delete_employee():
+
+    emp_id = input("\nEnter Employee ID to Delete: ")
+
+    rows = []
+    found = False
+
+    with open(FILE_NAME, "r", newline="") as file:
+
+        reader = csv.DictReader(file)
+
+        for row in reader:
+
+            if row["Employee ID"] == emp_id:
+                found = True
+            else:
+                rows.append(row)
+
+    if found:
+
+        with open(FILE_NAME, "w", newline="") as file:
+
+            fieldnames = [
+                "Employee ID", "Name", "Department",
+                "Basic Salary", "HRA", "DA", "PF",
+                "Gross Salary", "Net Salary"
+            ]
+
+            writer = csv.DictWriter(file, fieldnames=fieldnames)
+
+            writer.writeheader()
+            writer.writerows(rows)
+
+        print("Employee deleted successfully!")
+
+    else:
+        print("Employee not found!")
+
+
+# Main program
+create_file()
+
+while True:
+
+    print("\n====================================")
+    print("       PAYROLL MANAGEMENT SYSTEM")
+    print("====================================")
+
+    print("1. Add Employee")
+    print("2. Display Employees")
+    print("3. Search Employee")
+    print("4. Update Employee")
+    print("5. Delete Employee")
+    print("6. Exit")
+
+    choice = input("\nEnter your choice: ")
+
+    if choice == "1":
+        add_employee()
+
+    elif choice == "2":
+        display_employees()
+
+    elif choice == "3":
+        search_employee()
+
+    elif choice == "4":
+        update_employee()
+
+    elif choice == "5":
+        delete_employee()
+
+    elif choice == "6":
+        print("\nThank you for using Payroll Management System!")
+        break
+
+    else:
+        print("Invalid choice! Please try again.")
+
+print("====================================")

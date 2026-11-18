@@ -1,0 +1,99 @@
+#Basic python program
+
+print("Hello, World!")
+print("Welcome to Python Programming")
+
+
+#Program Using Variables
+a = 10
+b = 20
+
+print("Value of a:", a)
+print("Value of b:", b)
+
+#Program Using Arithmetic Operators
+a = 20
+b = 10
+
+print("Addition:", a + b)
+print("Subtraction:", a - b)
+print("Multiplication:", a * b)
+print("Division:", a / b)
+print("Modulus:", a % b)
+print("Floor Division:", a // b)
+print("Exponent:", a ** b)
+
+
+#Program Using User Input
+name = input("Enter your name: ")
+age = input("Enter your age: ")
+
+print("Your name is:", name)
+print("Your age is:", age)
+
+
+
+#Program to Add Two Numbers Using Input
+a = int(input("Enter first number: "))
+b = int(input("Enter second number: "))
+
+sum = a + b
+
+print("Sum =", sum)
+
+
+#Program to Find the Area of a Rectangle
+length = float(input("Enter length: "))
+breadth = float(input("Enter breadth: "))
+
+area = length * breadth
+
+print("Area of rectangle =", area)
+
+#Program Using Comparison Operators
+a = 10
+b = 20
+
+print(a > b)
+print(a < b)
+print(a == b)
+print(a != b)
+print(a >= b)
+print(a <= b)
+
+
+#Program Using Assignment Operators
+a = 10
+
+a += 5
+print("Addition:", a)
+
+a -= 3
+print("Subtraction:", a)
+
+a *= 2
+print("Multiplication:", a)
+
+a /= 4
+print("Division:", a)
+
+
+#Program to Swap Two Numbers
+a = int(input("Enter first number: "))
+b = int(input("Enter second number: "))
+
+a, b = b, a
+
+print("After swapping:")
+print("a =", a)
+print("b =", b)
+
+
+#Program to Calculate Simple Interest
+p = float(input("Enter principal amount: "))
+r = float(input("Enter rate of interest: "))
+t = float(input("Enter time: "))
+
+si = (p * r * t) / 100
+
+print("Simple Interest =", si)

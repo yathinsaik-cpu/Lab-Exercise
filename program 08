@@ -1,0 +1,40 @@
+
+print("==========================================")
+print("       FREQUENCY COUNTER PROGRAM")
+print("==========================================")
+
+# Get input from the user
+n = int(input("Enter the number of elements: "))
+
+# Create an empty list
+numbers = []
+
+print("\nEnter the elements:")
+
+for i in range(n):
+    value = int(input("Element " + str(i + 1) + ": "))
+    numbers.append(value)
+
+# Create an empty dictionary
+frequency = {}
+
+# Count frequency of each element
+for num in numbers:
+
+    if num in frequency:
+        frequency[num] = frequency[num] + 1
+
+    else:
+        frequency[num] = 1
+
+# Display original list
+print("\nOriginal List:", numbers)
+
+# Display frequency
+print("\nElement Frequency")
+print("-------------------------")
+
+for key, value in frequency.items():
+    print(key, "       ", value)
+
+print("==========================================")
