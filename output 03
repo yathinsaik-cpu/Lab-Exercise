@@ -1,0 +1,27 @@
+====================================
+       NUMBER GUESSING GAME
+====================================
+
+Welcome to the Number Guessing Game!
+I have selected a number between 1 and 100.
+You have 7 attempts to guess the number.
+
+Enter your guess: 25
+Too low! Try a higher number.
+Remaining attempts: 6
+
+Enter your guess: 75
+Too high! Try a lower number.
+Remaining attempts: 5
+
+Enter your guess: 50
+Too low! Try a higher number.
+Remaining attempts: 4
+
+Enter your guess: 65
+Congratulations! You guessed the correct number.
+The secret number is: 65
+Number of attempts: 4
+
+Thank you for playing!
+====================================
